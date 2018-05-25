@@ -1,0 +1,279 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
+body {
+	margin: 0em;
+}
+
+#primaPagina {
+	display: grid;
+	grid-template-columns: 4% 96%;
+	grid-template-rows: 30% 30% 20% 20%;
+}
+
+#secondaPagina {
+	display: none;
+}
+
+aside {
+	grid-row: 1/7;
+	background-color: #333333;
+	color: white;
+	text-decoration: underline;
+}
+
+aside:hover {
+	grid-row: 1/7;
+	background-color: green;
+	color: white;
+	text-decoration: underline;
+}
+
+nav {
+	background-color: red;
+	color: white;
+	padding: 1em;
+	text-decoration: underline;
+}
+
+nav:hover {
+	background-color: green;
+	color: white;
+	padding: 1em;
+	text-decoration: underline;
+}
+
+img {
+	float: right;
+}
+
+header {
+	background-color: black;
+	color: white;
+	height: 5em;
+	padding: 1em;
+	text-align: center;
+	font-size: 150%;
+}
+
+h2 {
+	color: red;
+	clear: left;
+}
+
+h3 {
+	color: red;
+}
+
+article {
+	padding: 1em;
+}
+
+#simbolo {
+	text-align: right;
+	background-color: red;
+	margin : 0px;
+}
+
+span {
+	font-size: 11vh;
+}
+
+#simbolo:hover {
+	background-color: green;
+}
+
+#simboloRitorno {
+	background-color: red;
+}
+
+#simboloRitorno:hover {
+	background-color: green;
+}
+
+#colori {
+	background-color: gray;
+	color: white
+}
+
+input {
+	padding: 0.5em;
+}
+
+#scritte {
+	text-align: center;
+}
+
+#jordanImmagine {
+	width: 700px;
+	height: 400px;
+}
+
+#logo {
+	position: absolute;
+	top: 35px;
+	left: 200px;
+	width: 150px;
+	height: 100px;
+}
+
+#logoSinistra {
+	position: absolute;
+	top: 35px;
+	left: 1366px;
+	width: 150px;
+	height: 100px;
+}
+
+#shoes {
+	width: 150px;
+	height: 150px;
+	position: relative;
+}
+</style>
+
+<script type="text/javascript">
+	"use strict";
+	//apre la seconda pagina e chiude la prima
+	function prova() {
+		var x = document.getElementById("primaPagina");
+		var y = document.getElementById("secondaPagina");
+		x.style.display = "none";
+		y.style.display = "grid";
+	}
+
+	//chiude la seconda pagina e apre la prima
+	function secondaPagina() {
+		var x = document.getElementById("primaPagina");
+		var y = document.getElementById("secondaPagina");
+		x.style.display = "grid";
+		y.style.display = "none";
+	}
+
+	//cambia colore al titolo e cambia immagine
+	function colori(x) {
+		var scrittaColore = document.getElementById("titolo");
+		scrittaColore.style.color = x;
+	}
+
+	//Movimento della scarpa
+	var foto, timer;
+	var mSec = 10;
+	var tuttoOK = true;
+	function movimento() {
+		//se tuttoOK == true entra nel timer
+		if (tuttoOK) {
+			timer = window.setInterval(sposta, 100);
+			tuttoOK = false;
+		} else {
+			//se tuttoOK == false ferma il timer
+			clearInterval(timer);
+			tuttoOK = true;
+		}
+	}
+
+	function sposta() {
+		var valore;
+		foto = document.getElementById("shoes");
+		mSec += 10;
+		valore = mSec + "px";
+		foto.style.left = valore;
+		
+		if (mSec >= 1366) {
+			foto.style.left = "10px";
+			mSec = 10;
+		}
+	}
+</script>
+</head>
+
+<body>
+	<div id="primaPagina">
+		<aside>
+			<a href="www.google.it"></a>
+		</aside>
+
+		<header>
+			<h1>Air Jordan</h1>
+			<img alt="JordanLogo" src="logo.jpg" id="logo"> <img
+				alt="JordanLogo" src="logo.jpg" id="logoSinistra">
+		</header>
+
+		<nav>
+			<p onclick="prova()"></p>
+		</nav>
+
+		<article>
+			<h3>Jordan</h3>
+			<p>Nel 1984 la giovane guardia titolare dei Chicago Bulls firma
+				un contratto di sponsorizzazione della durata di cinque anni con
+				Nike</p>
+			<p>Il rapporto tra Michael Jordan e il marchio di Portland porta
+				alla nascita della prima signature shoe ispirata al numero 23 dei
+				Bulls: il 1985 è l'anno della Air Jordan, un modello con tomaia in
+				pelle e puntale traforato poggiata su una suola a coppa in gomma,
+				provvista di cuscinetto "Air Wedge", che ha introdotto così tante
+				novità da essere considerato da molti come il paio di sneaker più
+				influente di sempre.</p>
+
+			<img alt="JordanLogo" src="air-jordan.png">
+
+			<h2>Jordan Logo</h2>
+
+			<p>Inizialmente, la Nike diede vita al brand (marchio) producendo
+				solamente le scarpe, creando un modello nuovo ogni anno, indossato
+				dal giocatore nel corso della stagione, già dal suo primo anno da
+				professionista. Si tratta di quelle che in gergo vengono definite
+				signature shoes (scarpe realizzate su misura per uno specifico
+				atleta). L'enorme successo globale ed il richiamo generato
+				dall'ex-giocatore dei Chicago Bulls ha portato nel tempo la Nike ad
+				espandere la linea anche a magliette, felpe e pantaloncini, non
+				esclusivamente per il basket, ma anche per la vita di tutti i
+				giorni, dando vita ad una vera e propria sottomarca, che poi ha
+				preso il nome di Jordan Brand. Identificate da numeri romani
+				progressivi, ad oggi sono state realizzate 32 scarpe Air Jordan. Di
+				queste, solo alcune furono indossate da Michael in una partita NBA,
+				in particolare le I, II, III, IV, V, VI, VII, VIII, IX, X, XI, XII,
+				XIII, XIV, XVI, XVII e XVIII</p>
+
+			<img alt="JordanLogo" src="airj.png" id="jordanImmagine">
+		</article>
+
+		<p id="simbolo" onclick="prova()">
+			<span>▶ </span>
+		</p>
+	</div>
+
+
+	<!-- Inizio seconda Pagina -->
+	<div id="secondaPagina">
+
+		<aside>
+			<a href="www.google.it"></a>
+		</aside>
+		<header>
+			<h1 id="titolo">Jordan Shoes</h1>
+			<img alt="JordanLogo" src="logo.jpg" id="logo"> <img
+				alt="JordanLogo" src="logo.jpg" id="logoSinistra">
+		</header>
+		<nav id="colori">
+			<p id="scritte">
+				<input type="button" value="Verde" onclick="colori('green')">
+				<input type="button" value="Blu" onclick="colori('blue')"> <input
+					type="button" value="Rosso" onclick="colori('red')"> <input
+					type="button" value="White" onclick="colori('white')">
+			</p>
+		</nav>
+
+		<img alt="JordanLogo" src="jordan_1.png" id="shoes" onclick="movimento()"> 
+
+
+
+		<p id="simboloRitorno" onclick="secondaPagina()">
+			<span>◀ </span>
+		</p>
+	</div>
+</body>
+</html>
