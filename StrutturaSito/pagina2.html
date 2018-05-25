@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Generetor</title>
+<style type="text/css">
+div {
+	width: 3em;
+	height: 3em;
+	background-color: black;
+	border: white solid 0.3em;
+}
+
+p {
+	padding: 10px;
+}
+
+span {
+	padding-left: 10px;
+}
+
+input {
+	background-color: black;
+	color: white;
+}
+
+.oggetto {
+	background-color: cyan
+}
+
+.oggettoro {
+	background-color: gold
+}
+</style>
+<script type="text/javascript">
+	"use strict";
+	
+	
+function linea(){
+	var linea=parseInt(document.getElementById("testo").value);
+	var contenitore=document.getElementById("contlinea");
+	for(var i=0;i<linea;i++){
+		var quad=document.createElement("div"); 
+		
+		if(i%2==0){
+			quad.setAttribute("class", "oggetto");
+		}else{
+			quad.setAttribute("class" ,"oggettoro");	;
+			}
+	    contenitore.appendChild(quad);
+		}
+	
+}
+</script>
+</head>
+<body>
+
+	<p>
+		<input type="text" id="testo"> <span onclick=" linea()">linea</span>
+		<span onclick="scacchiera()">scacchiera</span>
+	</p>
+	<div id="contlinea"></div>
+</body>
+</html>
