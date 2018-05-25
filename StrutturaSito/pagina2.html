@@ -1,64 +1,138 @@
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Generetor</title>
+<title>Esempi con i timers</title>
 <style type="text/css">
 div {
-	width: 3em;
-	height: 3em;
-	background-color: black;
-	border: white solid 0.3em;
+	width: 50px;
+	height: 50px
 }
 
-p {
-	padding: 10px;
+#rosso {
+	background: red;
+	position: absolute;
+	left: 10px;
+	top: 0px;
 }
 
-span {
-	padding-left: 10px;
+#blu {
+	background: blue;
+	position: absolute;
+	left: 10px;
+	top: 100px;
 }
 
-input {
-	background-color: black;
-	color: white;
+#grigio {
+	background: #888;
+	position: absolute;
+	left: 10px;
+	top: 200px;
 }
 
-.oggetto {
-	background-color: cyan
+#giallo {
+	background: yellow;
+	position: absolute;
+	left: 10px;
+	top: 300px;
 }
 
-.oggettoro {
-	background-color: gold
+#rosa {
+	background: pink;
+	position: absolute;
+	left: 10px;
+	top: 400px;
 }
 </style>
 <script type="text/javascript">
-	"use strict";
-	
-	
-function linea(){
-	var linea=parseInt(document.getElementById("testo").value);
-	var contenitore=document.getElementById("contlinea");
-	for(var i=0;i<linea;i++){
-		var quad=document.createElement("div"); 
+"use strict"
+	/* CASELLA BLU*/
+	function movBlu() {
+		var ogg = document.getElementById("blu");
+		ogg.style.left = "200px";
+
+	}
+	/* CASELLA GRIGIA*/
+	var mov = window.innerwidth;
+		var fine = "300px";
+		var mgrigio,mgiallo,mrosa;
+		var msecgrigio = 10,msecgiallo = 10,msecrosa=10;
 		
-		if(i%2==0){
-			quad.setAttribute("class", "oggetto");
-		}else{
-			quad.setAttribute("class" ,"oggettoro");	;
-			}
-	    contenitore.appendChild(quad);
+	function spostagrigio() {
+		var valore;
+		mgrigio = document.getElementById("grigio");
+		msecgrigio += 10;
+		valore = msecgrigio + "px";
+		mgrigio.style.left = valore;
+		console.log(valore);
+	}
+	function movGrigio() {
+		window.setInterval(spostagrigio, 100);
+	}
+	/*CASELLA GIALLA*/	
+	var init;
+	function init() {
+
+
+		var valore;
+		mgiallo = document.getElementById("giallo");
+		msecgiallo += 10;
+		valore = msecgiallo + "px";
+		mgiallo.style.left = valore;
+		console.log(valore);
+		
+		if (valore == fine) {
+			clearInterval(init);
 		}
+	}
+
+		function movGiallo() {
+			init = window.setInterval(init, 100);
+		}
+		/*MOVIMENTO ROSA*/
+		
+		function spostarosa() {
+			var valore;
+			var finestra= window.innerWidth;
+			mrosa = document.getElementById("rosa");
+			msecrosa += 10;
+			valore = msecrosa + "px";
+			mrosa.style.left = valore;
+			console.log(valore);
+			
+			if(msecrosa>=finestra){
+				mrosa.style.left="10px";
+				msecrosa=10;
+				
+			}
+			
+		}
+		
+		var qrosa=true;
+		var timerRosa;
+		
+		function movRosa() {
+			
+			if(qrosa){
+				timerRosa=window.setInterval(spostarosa, 100);
+				qrosa=false;
+			}else{
+				window.clearInterval(timerRosa)
+				qrosa=true;
+				console.log(timerRosa);
+			}
+			
+		}
+
 	
-}
 </script>
 </head>
 <body>
-
-	<p>
-		<input type="text" id="testo"> <span onclick=" linea()">linea</span>
-		<span onclick="scacchiera()">scacchiera</span>
-	</p>
-	<div id="contlinea"></div>
+	<div id="rosso">1</div>
+	<div onclick="movBlu()" id="blu">2</div>
+	<div onclick="movGrigio()" id="grigio">3</div>
+	<div onclick="movGiallo()" id="giallo">4</div>
+	<div onclick="movRosa()"id="rosa">5-6</div>
 </body>
 </html>
